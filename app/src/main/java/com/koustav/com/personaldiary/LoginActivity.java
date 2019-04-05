@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.biometrics.BiometricPrompt;
 import android.hardware.fingerprint.FingerprintManager;
@@ -11,19 +12,82 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.koustav.com.personaldiary.Fragment.RegistrationFragment;
 
 public class LoginActivity extends AppCompatActivity {
-  private TextView biometricscheckTv;
+  private TextView biometricscheckTv, registrationTextview;
   private FingerprintManager fingerprintManager;
+  private Button LoginButton;
+  private EditText usernameET, passwordET;
+  private ImageView loginIV;
+  private LinearLayout loginLayout;
+  private String username="tapabrata", password= "fzsv2";
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_login);
     biometricscheckTv = findViewById(R.id.biometricsTv);
+    LoginButton = findViewById(R.id.signInButton);
+    usernameET = findViewById(R.id.usernameET);
+    passwordET = findViewById(R.id.passwordET);
+    loginIV = findViewById(R.id.loginIV);
+    loginLayout = findViewById(R.id.loginlayout);
+    registrationTextview = findViewById(R.id.registerTextview);
+    registrationTextview.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        findViewById(R.id.containerLayout).setVisibility(View.VISIBLE);
+        pushFragments(new RegistrationFragment(),false,false,"registrationFragment");
+        loginIV.setVisibility(View.GONE);
+        loginLayout.setVisibility(View.GONE);
+
+      }
+    });
     scan();
+    LoginButton.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        if(usernameET.getText()==null)
+        {
+          usernameET.setHint("Username cant be empty empty");
+          usernameET.setHintTextColor(getResources().getColor(R.color.IndianRed));
+            Toast.makeText(LoginActivity.this,"username cannot be empty",Toast.LENGTH_SHORT).show();
+        }
+        else if(passwordET.getText()==null)
+        {
+          passwordET.setHint("Password cant be empty");
+          passwordET.setHintTextColor(getResources().getColor(R.color.IndianRed));
+            Toast.makeText(LoginActivity.this,"password cannot be empty",Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+          if((usernameET.getText().toString().equals(username))&&(passwordET.getText().toString().equals(password)))
+          {
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            MainActivity mainActivity = new MainActivity();
+            LoginActivity.this.startActivity(intent);
+          }
+          else
+          {
+            Toast.makeText(LoginActivity.this,"username/password incorrect",Toast.LENGTH_SHORT).show();
+          }
+        }
+      }
+    });
 
   }
   public static boolean isBiometricPromptEnabled() {
@@ -88,5 +152,22 @@ public class LoginActivity extends AppCompatActivity {
   protected void onRestart() {
     super.onRestart();
     scan();
+  }
+  private void pushFragments(Fragment fragment, boolean shouldAnimate,
+                             boolean shouldAdd, String tag) {
+    FragmentManager fragmentManager = getSupportFragmentManager();
+    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+    if (shouldAnimate) {
+      fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
+    }
+    fragmentTransaction.replace(R.id.containerLayout, fragment, tag);
+
+    if (shouldAdd) {
+      fragmentTransaction.addToBackStack(tag);
+    } else {
+      fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+    }
+
+    fragmentTransaction.commit();
   }
 }
