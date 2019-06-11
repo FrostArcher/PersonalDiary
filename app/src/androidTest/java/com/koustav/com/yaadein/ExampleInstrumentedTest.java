@@ -1,4 +1,4 @@
-package com.koustav.com.personaldiary;
+package com.koustav.com.yaadein;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

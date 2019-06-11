@@ -1,4 +1,4 @@
-package com.koustav.com.personaldiary.Fragment;
+package com.koustav.com.yaadein.Fragment;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.koustav.com.personaldiary.R;
+import com.koustav.com.yaadein.R;
 
 public class MemoryList extends Fragment {
   private Button addNewButton;

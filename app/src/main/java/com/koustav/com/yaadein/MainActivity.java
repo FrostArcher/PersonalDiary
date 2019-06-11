@@ -1,13 +1,12 @@
-package com.koustav.com.personaldiary;
+package com.koustav.com.yaadein;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 
-import com.koustav.com.personaldiary.Fragment.MemoryList;
+import com.koustav.com.yaadein.Fragment.MemoryList;
 
 public class MainActivity extends AppCompatActivity {
 

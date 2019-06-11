@@ -1,4 +1,4 @@
-package com.koustav.com.personaldiary.Fragment;
+package com.koustav.com.yaadein.Fragment;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.koustav.com.personaldiary.R;
+import com.koustav.com.yaadein.R;
 
 public class AddNewMemory extends Fragment {
   @Nullable
