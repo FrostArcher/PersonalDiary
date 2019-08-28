@@ -1,22 +1,19 @@
 package com.koustav.com.personaldiary;
 
 import android.Manifest;
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.hardware.biometrics.BiometricPrompt;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.core.hardware.fingerprint.FingerprintManagerCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -121,12 +118,13 @@ public class LoginActivity extends AppCompatActivity {
         {
           if (!isFingerprintAvailable(this))
             biometricscheckTv.setText("Please Add a fringerpring to your device");
-          else
+          else {
             biometricscheckTv.setText("Can scan fingerprint");
+          }
         }
       }
     }
-    else if (isSdkVersionSupported())
+    if (isSdkVersionSupported())
     {
       fingerprintManager= (FingerprintManager)getSystemService(FINGERPRINT_SERVICE);
       if (!isHardwareSupported(this))

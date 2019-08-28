@@ -13,7 +13,7 @@
       android:visibility="gone">
 
   </FrameLayout>
-  <android.support.v7.widget.AppCompatImageView
+  <ImageView
       android:id="@+id/loginIV"
       android:layout_width="100dp"
     android:layout_height="100dp"
@@ -30,7 +30,7 @@
     android:layout_centerInParent="true"
     android:orientation="vertical">
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_margin="5dp"
@@ -41,9 +41,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Username" />
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_margin="5dp"
@@ -54,7 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="password" />
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
     <Button
       android:id="@+id/signInButton"

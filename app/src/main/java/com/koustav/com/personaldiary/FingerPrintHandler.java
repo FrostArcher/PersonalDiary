@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.CancellationSignal;
+import android.util.Log;
 import android.widget.TextView;
 
 public class FingerPrintHandler extends FingerprintManager.AuthenticationCallback {
@@ -20,6 +21,7 @@ public class FingerPrintHandler extends FingerprintManager.AuthenticationCallbac
   @Override
   public void onAuthenticationError(int errorCode, CharSequence errString) {
     super.onAuthenticationError(errorCode, errString);
+    Log.i("autherr","error::::::"+errString);
     this.update(errString, false);
   }
 

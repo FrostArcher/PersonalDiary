@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "307245212700",
+    "firebase_url": "https://yaadein-64223.firebaseio.com",
+    "project_id": "yaadein-64223",
+    "storage_bucket": "yaadein-64223.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:307245212700:android:4c4b415e5293d766",
+        "android_client_info": {
+          "package_name": "com.koustav.com.personaldiary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "307245212700-jmrv89k5qklj2flv445u0e4btni1ifc9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.koustav.com.personaldiary",
+            "certificate_hash": "40a6b90bbc9c1045f66ddab2640f649393b883e1"
+          }
+        },
+        {
+          "client_id": "307245212700-pu86vorupofnmo0usjei96ke10fjln02.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7R7P3BCyQID8nvtTjWowwQIWA2k1GdUc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "307245212700-pu86vorupofnmo0usjei96ke10fjln02.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
